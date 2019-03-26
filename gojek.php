@@ -11,9 +11,9 @@ function generateRandomString($length = 10) {
 $kodepromo = "GOFOODMAKANMURAH";
 $Phonemodel = generateRandomString(5);
 $XUniqueid = generateRandomString(16);
-echo '#################################\n# Copyright : @ilyasa48 | SGB-Team #\n#################################\n';
-echo 'Indonesia : 62822xxxxxxxx \n'; 
-echo 'US : 1509xxxxxxx \n'; 
+echo '#################################\r\n# Copyright : @ilyasa48 | SGB-Team #\r\n#################################\r\n';
+echo 'Indonesia : 62822xxxxxxxx \r\n'; 
+echo 'US : 1509xxxxxxx \r\n'; 
 echo 'Masukkan Nomor HP dengan Kode Negara : '; 
 $phone_number = trim(fgets(STDIN)); 
 
@@ -60,7 +60,7 @@ if (curl_errno($ch)) {
 curl_close ($ch);
 $json_data = json_decode($result);
 if($json_data->success == 0){
-	echo $json_data->errors[0]->message.'\n';
+	echo $json_data->errors[0]->message.'\r\n';
 	exit();
 }
 $otp_token = $json_data->data->otp_token;
@@ -113,7 +113,7 @@ if (curl_errno($ch)) {
 curl_close ($ch);
 $json_data = json_decode($result);
 if($json_data->success == 0){
-	echo $json_data->errors[0]->message.'\n';
+	echo $json_data->errors[0]->message.'\r\n';
 	goto otp_ulang;
 }
 $access_token = $json_data->data->access_token;
@@ -161,7 +161,7 @@ if (curl_errno($ch)) {
 curl_close ($ch);
 $json_data = json_decode($result);
 if($json_data->success == 0){
-	echo $json_data->errors[0]->message.'\n';
+	echo $json_data->errors[0]->message.'\r\n';
 	exit();
 }
 
@@ -205,7 +205,7 @@ if (curl_errno($ch)) {
 curl_close ($ch);
 $json_data = json_decode($result);
 if($json_data->success == 0){
-	echo $json_data->errors[0]->message.'\n';
+	echo $json_data->errors[0]->message.'\r\n';
 	exit();
 }
 echo $json_data->data->message;
