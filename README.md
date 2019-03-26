@@ -1,5 +1,5 @@
 # gojek-account-register
-GO-JEK Account Regiter With Promo Code Used
+GO-JEK Account Register With Promo Code Used
 
 ## Install
       $ pkg update
