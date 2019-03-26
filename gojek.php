@@ -11,7 +11,7 @@ function generateRandomString($length = 10) {
 $kodepromo = "GOFOODMAKANMURAH";
 $Phonemodel = generateRandomString(5);
 $XUniqueid = generateRandomString(16);
-echo '#################################'
+echo '#################################';
 echo "\r\n";
 echo '# Copyright : @ilyasa48 | SGB-Team #';
 echo "\r\n";
@@ -23,9 +23,7 @@ echo 'US : 1509xxxxxxx';
 echo "\r\n";
 echo 'Masukkan Nomor HP dengan Kode Negara : '; 
 $phone_number = trim(fgets(STDIN)); 
-
 $ch = curl_init();
-
 curl_setopt($ch, CURLOPT_URL, 'https://api.gojekapi.com/v5/customers');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, '{
@@ -36,7 +34,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, '{
 }');
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
-
 $headers = array();
 $headers[] = 'X-Appversion: 3.24.0';
 $headers[] = 'X-Uniqueid: '.$XUniqueid.'';
@@ -59,7 +56,6 @@ $headers[] = 'Content-Type: application/json; charset=UTF-8';
 $headers[] = 'Host: api.gojekapi.com';
 $headers[] = 'User-Agent: okhttp/3.10.0';
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
 $result = curl_exec($ch);
 if (curl_errno($ch)) {
     echo 'Error:' . curl_error($ch);
@@ -72,12 +68,10 @@ if($json_data->success == 0){
 	exit();
 }
 $otp_token = $json_data->data->otp_token;
-
 otp_ulang:
 echo 'Masukkan OTP : '; 
 $otp = trim(fgets(STDIN)); 
 $ch = curl_init();
-
 curl_setopt($ch, CURLOPT_URL, 'https://api.gojekapi.com/v5/customers/phone/verify');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, '{
@@ -90,7 +84,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, '{
 }');
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
-
 $headers = array();
 $headers[] = 'X-Appversion: 3.24.0';
 $headers[] = 'X-Uniqueid: '.$XUniqueid.'';
@@ -113,7 +106,6 @@ $headers[] = 'Content-Type: application/json; charset=UTF-8';
 $headers[] = 'Host: api.gojekapi.com';
 $headers[] = 'User-Agent: okhttp/3.10.0';
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
 $result = curl_exec($ch);
 if (curl_errno($ch)) {
     echo 'Error:' . curl_error($ch);
@@ -126,20 +118,14 @@ if($json_data->success == 0){
 	goto otp_ulang;
 }
 $access_token = $json_data->data->access_token;
-
-
-
 $push_token = generateRandomString(11).':APA91bE9VM_oE6YN9Yzrt5gzkiWF4Xfm8vMA4Myg8_U7vjSsVszE663wBVFiY4vAojMYU_yPgBh-eaKHk0agKVVDlXhpmyzOuHh6CwlaoBKgiouYrBO12RVD16bevUhMNNMJ_oWgNgBu';
 $device_id = generateRandomString(16);
 $ch = curl_init();
-
 curl_setopt($ch, CURLOPT_URL, 'https://api.gojekapi.com/v4/customers/device');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, '{"push_token_type":"FCM","application_id":"com.gojek.app","push_token":"'.$push_token.'","device_id":"'.$device_id.'"}');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
-
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
-
 $headers = array();
 $headers[] = 'X-Appversion: 3.24.0';
 $headers[] = 'X-Uniqueid: '.$XUniqueid.'';
@@ -162,7 +148,6 @@ $headers[] = 'Content-Type: application/json; charset=UTF-8';
 $headers[] = 'Host: api.gojekapi.com';
 $headers[] = 'User-Agent: okhttp/3.10.0';
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
 $result = curl_exec($ch);
 if (curl_errno($ch)) {
     echo 'Error:' . curl_error($ch);
@@ -174,9 +159,7 @@ if($json_data->success == 0){
 	echo "\r\n";
 	exit();
 }
-
 $ch = curl_init();
-
 curl_setopt($ch, CURLOPT_URL, 'https://api.gojekapi.com/go-promotions/v1/promotions/enrollments');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, '{
@@ -184,7 +167,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, '{
 }');
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
-
 $headers = array();
 $headers[] = 'X-Appversion: 3.24.0';
 $headers[] = 'X-Uniqueid: '.$XUniqueid.'';
@@ -207,7 +189,6 @@ $headers[] = 'Content-Type: application/json; charset=UTF-8';
 $headers[] = 'Host: api.gojekapi.com';
 $headers[] = 'User-Agent: okhttp/3.10.0';
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
 $result = curl_exec($ch);
 if (curl_errno($ch)) {
     echo 'Error:' . curl_error($ch);
