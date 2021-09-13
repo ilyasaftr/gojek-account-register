@@ -1,7 +1,7 @@
 # gojek-account-register
 [![Github All Releases](https://img.shields.io/github/downloads/ilyasafr/gojek-account-register/total.svg)]()
 
-GO-JEK Account Register With Promo Code Used
+GO-JEK Account Register With Promo Code
 
 ## Install
       $ pkg update
